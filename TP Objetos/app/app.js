@@ -38,7 +38,7 @@
 // //     depositar(cantidad){
 // //         this.saldo += cantidad;
 // //     }
-    
+
 // //     retirar(cantidad){
 // //         if(this.saldo-cantidad >= 0){
 // //             this.saldo -= cantidad;
@@ -47,7 +47,7 @@
 // //             console.log("No cuenta con ese dinero en cuenta.");  
 // //         }     
 // //     }
-    
+
 // //     informar(){
 // //         console.log(`${this.titular}, tu saldo es: $${this.saldo}`);
 // //     }
@@ -84,7 +84,7 @@
 // //         const perimetroAux = (this.getBase()*2)+(this.getAltura()*2);
 // //         console.log(`El perimetro es ${perimetroAux}.`);
 // //     }
-   
+
 // //     area(){
 // //         const areaAux = (this.getBase()*this.getAltura());
 // //         console.log(`El area es ${areaAux}.`);
@@ -289,5 +289,101 @@
 // miLibro2.mostrarLibro();
 // mayorPaginas(miLibro1,miLibro2);
 
+// ----------------Ejercicio 7 -----------------------
+class Contacto {
+    constructor(nombre, numero) {
+        this.nombre = nombre;
+        this.numero = numero;
+    }
+    getNombre() {
+        return this.nombre;
+    }
+    setNombre(nombreNuevo) {
+        this.nombre = nombreNuevo;
+    }
+    getNumero() {
+        return this.numero;
+    }
+    setNumero(numeroNuevo) {
+        this.numero = numeroNuevo;
+    }
 
+    imprimir(){
+        console.log(`Nombre: ${this.nombre} \n Numero: ${this.numero}`);
+    }
+}
+
+class Agenda {
+    constructor(nombre) {
+        this.nombre = nombre;
+        this.contactos = [];
+    }
+
+    getNombre() {
+        return this.nombre;
+    }
+    setNombre(nombreNuevo) {
+        this.nombre = nombreNuevo;
+    }
+    addContacto(contacto) {
+        if (this.contactos.length < 10) {
+            this.contactos.push(contacto);
+        } else {
+            console.log("La agenda esta llena.");
+        }
+    }
+    existeContacto(contacto) {
+        let band = true;
+        this.contactos.forEach(element => {
+            if (element.nombre === contacto.nombre) {
+                console.log(`${contacto.nombre} esta en la agenda.`);
+                band = false;
+            }
+        });
+        if (band == true) {
+            console.log(`${contacto.nombre} no se encuentra en la agenda.`);
+        }
+    }
+    listarContactos(){
+        console.table(this.contactos, ["nombre", "numero"]);
+    }
+
+    buscarContacto(nombre){
+        this.contactos.forEach(element => {
+            if(element.nombre === nombre){
+                console.log(`El numero de ${element.nombre} es ${element.numero}`);
+            }
+        });    
+    }
+    eliminarContacto(contacto){
+        this.contactos.forEach(element => {
+            if(contacto.nombre === element.nombre){
+                this.contactos.splice(contactos.indexOf(element),1);
+            }
+        });
+    }
+
+    agendaLlena(){
+        if(this.contactos.length == 10){
+            console.log("La agenda esta llena.");
+        }else{
+            console.log('La agenda no esta llena.');
+        }
+    }
+
+    huecosLibres(){
+        let contadorHueco=10-this.contactos.length;
+        console.log (`Hay un total de ${contadorHueco} huecos libres`);
+    }
+}
+
+let Contacto1 = new Contacto("Emilio",3816615785);
+let Contacto2 = new Contacto("Matias",3865777888);
+let Contacto3 = new Contacto("Charly",3817898903);
+
+let miAgenda = new Agenda ("Matias");
+miAgenda.addContacto(Contacto1);
+miAgenda.addContacto(Contacto2);
+miAgenda.addContacto(Contacto3);
+miAgenda.listarContactos();
 
