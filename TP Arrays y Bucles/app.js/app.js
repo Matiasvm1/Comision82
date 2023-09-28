@@ -31,7 +31,7 @@ const cityList = () => {
 }
 
 //Ejercicio 3
-
+//Create Element  y AppendChild
 const dado = () => {
     const resultados = [];
     const conteo = [];
