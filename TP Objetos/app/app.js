@@ -289,101 +289,309 @@
 // miLibro2.mostrarLibro();
 // mayorPaginas(miLibro1,miLibro2);
 
-// ----------------Ejercicio 7 -----------------------
-class Contacto {
-    constructor(nombre, numero) {
+// // ----------------Ejercicio 7 -----------------------
+// class Contacto {
+//     constructor(nombre, numero) {
+//         this.nombre = nombre;
+//         this.numero = numero;
+//     }
+//     getNombre() {
+//         return this.nombre;
+//     }
+//     setNombre(nombreNuevo) {
+//         this.nombre = nombreNuevo;
+//     }
+//     getNumero() {
+//         return this.numero;
+//     }
+//     setNumero(numeroNuevo) {
+//         this.numero = numeroNuevo;
+//     }
+
+//     imprimir() {
+//         console.log(`Nombre: ${this.nombre} \n Numero: ${this.numero}`);
+//     }
+// }
+
+// class Agenda {
+//     constructor(nombre) {
+//         this.nombre = nombre;
+//         this.contactos = [];
+//     }
+
+//     getNombre() {
+//         return this.nombre;
+//     }
+//     setNombre(nombreNuevo) {
+//         this.nombre = nombreNuevo;
+//     }
+//     addContacto(contacto) {
+//         if (this.contactos.length < 10) {
+//             this.contactos.push(contacto);
+//         } else {
+//             console.log("La agenda esta llena.");
+//         }
+//     }
+//     existeContacto(nombre) {
+//         let band = true;
+//         this.contactos.forEach(element => {
+//             if (element.nombre === nombre) {
+//                 console.log(`${nombre} esta en la agenda.`);
+//                 band = false;
+//             }
+//         });
+//         if (band == true) {
+//             console.log(`${nombre} no se encuentra en la agenda.`);
+//         }
+//     }
+//     listarContactos() {
+//         console.table(this.contactos, ["nombre", "numero"]);
+//     }
+
+//     buscarContacto(nombre) {
+//         this.contactos.forEach(element => {
+//             if (element.nombre === nombre) {
+//                 console.log(`El numero de ${element.nombre} es ${element.numero}`);
+//             }
+//         });
+//     }
+//     eliminarContacto(nombre) {
+//         this.contactos.forEach(element => {
+//             if (nombre === element.nombre) {
+//                 this.contactos.splice(this.contactos.indexOf(element), 1);
+//             }
+//         });
+//     }
+
+//     agendaLlena() {
+//         if (this.contactos.length == 10) {
+//             console.log("La agenda esta llena.");
+//         } else {
+//             console.log('La agenda no esta llena.');
+//         }
+//     }
+
+//     huecosLibres() {
+//         let contadorHueco = 10 - this.contactos.length;
+//         console.log(`Hay un total de ${contadorHueco} huecos libres`);
+//     }
+// }
+
+// const agendaAux = new Agenda("Agenda Matias");
+// const menuAgenda = () => {
+//     let band = true;
+//     do {
+//         let opcion = parseInt(prompt('Ingrese la opcion que desea: \n 1. Añadir Contacto 2. Contacto Existente. \n 3.Listar Contactos. 4. Buscar Contacto \n 5. Estado de Agenda 6. Eliminar Contactos. \n 7. Huecos disponibles. 8. Salir'));
+
+//             switch (opcion) {
+//                 case 1: 
+//                         let contactoAux = new Contacto(prompt('Ingrese el nombre del contacto:'),parseInt(prompt('Ingrese el numero del contacto:')));
+//                         agendaAux.addContacto(contactoAux);
+//                     break;
+//                 case 2:
+//                         let nombreAux = prompt('Ingrese el nombre del contacto a buscar:');
+//                         agendaAux.existeContacto(nombreAux);
+//                     break;
+//                 case 3:
+//                         agendaAux.listarContactos();
+//                     break;
+//                 case 4:
+//                         let nombreAux2 = prompt('Ingrese el nombre del contacto a buscar:');
+//                         agendaAux.buscarContacto(nombreAux2);
+//                     break;
+//                 case 5:
+//                         agendaAux.agendaLlena();
+//                     break;
+//                 case 6:
+//                         let nombreAux3 = prompt('Ingrese el nombre del contacto que quiere eliminar:');
+//                         agendaAux.eliminarContacto(nombreAux3);
+//                     break;
+
+//                 case 7:
+//                         agendaAux.huecosLibres();
+//                     break;
+//                 case 8:
+//                         alert('Usted a decidido salir del menu.');
+//                         band = false;
+//                     break;
+//                 default:
+//                     alert('Ingrese una opcion valida.');
+//                     break;
+//             }
+
+
+//     } while (band === true);
+
+// }
+
+
+// menuAgenda();
+// //--------------------Ejercicio 8 ----------------------
+class Persona{
+    constructor(nombre,edad,profesion){
         this.nombre = nombre;
-        this.numero = numero;
-    }
-    getNombre() {
-        return this.nombre;
-    }
-    setNombre(nombreNuevo) {
-        this.nombre = nombreNuevo;
-    }
-    getNumero() {
-        return this.numero;
-    }
-    setNumero(numeroNuevo) {
-        this.numero = numeroNuevo;
+        this.edad = edad;
+        this.profesion = profesion;    
     }
 
-    imprimir(){
-        console.log(`Nombre: ${this.nombre} \n Numero: ${this.numero}`);
+    getNombre(){
+        return this.nombre;
+    } 
+    setNombre(nombreNuevo){
+        this.nombre = nombreNuevo;
+    }
+    getEdad(){
+        return this.edad;
+    }
+    getProfesion(){
+        return this.profesion;
+    }
+
+    saludar(nombre){
+        console.log(`Hola ${nombre} como estas? Mi nombre es ${this.nombre}, tengo ${this.edad} y soy ${this.profesion}`);
+    }
+
+    despedirse(nombre){
+        console.log(`Chau ${nombre}, nos vemos.`);
     }
 }
 
-class Agenda {
-    constructor(nombre) {
+// const matias = new Persona("Matias",23,"Ingeniero en Sistemas");
+// const paula = new Persona ("Paula",21,"Contador Publico");
+
+// matias.saludar(paula.getNombre());
+// paula.saludar(matias.getNombre());
+// matias.despedirse(paula.getNombre());
+// paula.despedirse(matias.getNombre());
+// //------------------------------Ejercicio 9 -------------------
+// class Animal {
+//     constructor(nombre, edad) {
+//         this.nombre = nombre;
+//         this.edad = edad;
+//     }
+
+//     emitirSonido() {
+//     }
+// }
+
+// class Gato extends Animal {
+//     constructor(nombre, edad) {
+//         super(nombre, edad);
+//     }
+
+    
+//     emitirSonido() {
+//         console.log("Miau Miau");
+//     }
+
+// }
+// class Perro extends Animal {
+//     constructor(nombre, edad) {
+//         super(nombre, edad);
+//     }
+
+
+//     emitirSonido() {
+//         console.log("Guau Guau");
+//     }
+
+// }
+
+
+// const tony = new Perro("Tony",23);
+// const minu = new Gato("Minu",8);
+
+
+// tony.emitirSonido();
+// minu.emitirSonido();
+
+//-----------------------------Ejercicio 10 -------------------------
+class Avion{
+    
+    constructor(nombre,capacidad,destino){
         this.nombre = nombre;
-        this.contactos = [];
+        this.capacidad = capacidad;
+        this.destino = destino;
+        this.pasajeros = [];
     }
 
-    getNombre() {
-        return this.nombre;
-    }
-    setNombre(nombreNuevo) {
-        this.nombre = nombreNuevo;
-    }
-    addContacto(contacto) {
-        if (this.contactos.length < 10) {
-            this.contactos.push(contacto);
-        } else {
-            console.log("La agenda esta llena.");
-        }
-    }
-    existeContacto(contacto) {
-        let band = true;
-        this.contactos.forEach(element => {
-            if (element.nombre === contacto.nombre) {
-                console.log(`${contacto.nombre} esta en la agenda.`);
-                band = false;
-            }
-        });
-        if (band == true) {
-            console.log(`${contacto.nombre} no se encuentra en la agenda.`);
-        }
-    }
-    listarContactos(){
-        console.table(this.contactos, ["nombre", "numero"]);
-    }
-
-    buscarContacto(nombre){
-        this.contactos.forEach(element => {
-            if(element.nombre === nombre){
-                console.log(`El numero de ${element.nombre} es ${element.numero}`);
-            }
-        });    
-    }
-    eliminarContacto(contacto){
-        this.contactos.forEach(element => {
-            if(contacto.nombre === element.nombre){
-                this.contactos.splice(contactos.indexOf(element),1);
-            }
-        });
-    }
-
-    agendaLlena(){
-        if(this.contactos.length == 10){
-            console.log("La agenda esta llena.");
+    addPasajero(persona){
+        if(this.pasajeros.length < this.capacidad){
+            this.pasajeros.push(persona);
+            console.log(`${persona.getNombre()} fue agregada a la lista de pasajeros del avion ${this.nombre}.`);
         }else{
-            console.log('La agenda no esta llena.');
+            console.log(`El avion ${this.nombre} esta llena.`);
         }
-    }
-
-    huecosLibres(){
-        let contadorHueco=10-this.contactos.length;
-        console.log (`Hay un total de ${contadorHueco} huecos libres`);
     }
 }
 
-let Contacto1 = new Contacto("Emilio",3816615785);
-let Contacto2 = new Contacto("Matias",3865777888);
-let Contacto3 = new Contacto("Charly",3817898903);
+class Aeropuerto{
+    constructor(nombreAeropuerto){
+        this.nombreAeropuerto = nombreAeropuerto;
+        this.aviones = [];
+    }
+    getNombre(){
+        return nombre;
+    }
+    setNombre(nombreNuevo){
+        this.nombreAeropuerto= nombreNuevo;
+    }
 
-let miAgenda = new Agenda ("Matias");
-miAgenda.addContacto(Contacto1);
-miAgenda.addContacto(Contacto2);
-miAgenda.addContacto(Contacto3);
-miAgenda.listarContactos();
+    addAviones(avion){
+        this.aviones.push(avion);
+    }
+
+    searchAvion(nombreAvion){
+    let band = true;
+        this.aviones.forEach(element => {
+            if(nombreAvion == element.nombre ){
+                console.table(element,["Nombre","Capacidad","Destino"]);
+                console.table(element.pasajeros.map(pasajero =>({
+                    Nombre: pasajero.getNombre(),
+                    Edad:   pasajero.getEdad(),
+                    Profesion: pasajero.getProfesion(),
+                })));
+                band=false;
+            }
+        });
+
+        if (band==true){
+            console.log(`El avion ${nombreAvion} no se encuentra en el Aeropouerto ${this.nombreAeropuerto}`);
+        }
+    }
+
+}
+const juan = new Persona("Matias Villafañe",23,"Ingeniero en Sistemas");
+const lucia = new Persona("Lucia Miranda",28,"Contador Publico");
+const julian= new Persona("Julian Peralta",23,"Medico");
+const jose = new Persona("Jose Villafañe",23,"Contador Publico");
+const patricia = new Persona("Patricia",53,"Abogada");
+
+const avion1 = new Avion("Avion1",4,"Buenos Aires");
+avion1.addPasajero(juan);
+avion1.addPasajero(lucia);
+avion1.addPasajero(julian);
+avion1.addPasajero(jose);
+avion1.addPasajero(patricia);
+const avion2 = new Avion("Avion2",3,"Cordoba");
+avion2.addPasajero(juan);
+avion2.addPasajero(lucia);
+avion2.addPasajero(julian);
+avion2.addPasajero(jose);
+avion2.addPasajero(patricia);
+const avion3 = new Avion("Avion3",5,"Tucuman");
+avion3.addPasajero(juan);
+avion3.addPasajero(lucia);
+avion3.addPasajero(julian);
+avion3.addPasajero(jose);
+avion3.addPasajero(patricia);
+
+const aeropuertoInternacional = new Aeropuerto("Aeropuerto Internacional");
+aeropuertoInternacional.addAviones(avion1);
+aeropuertoInternacional.addAviones(avion2);
+aeropuertoInternacional.addAviones(avion3);
+
+aeropuertoInternacional.searchAvion("Avion1");
+aeropuertoInternacional.searchAvion("Avion2");
+aeropuertoInternacional.searchAvion("Avion3");
 
